@@ -4,12 +4,12 @@ import interfaces.Exibivel;
 public abstract class Acomodacao implements Exibivel{
     private int codigo;
     private int capacidadeMax;
-    private double precoBase;
+    private double precoBaseDiaria;
 
-    public Acomodacao(int codigo, int capacidadeMax, double precoBase) {
+    public Acomodacao(int codigo, int capacidadeMax, double precoBaseDiaria) {
         this.codigo = codigo;
         this.capacidadeMax = capacidadeMax;
-        this.precoBase = precoBase;
+        this.precoBaseDiaria = precoBaseDiaria;
     }
 
     public abstract double calcPrecoTotal(int dias);
@@ -28,10 +28,10 @@ public abstract class Acomodacao implements Exibivel{
         this.capacidadeMax = capacidadeMax;
     }
 
-    public double getPrecoBase() {
-        return this.precoBase;
+    public double getPrecoBaseDiaria() {
+        return this.precoBaseDiaria;
     }
-    public void setPrecoBase(double precoBase) {
-        this.precoBase = precoBase;
+    public void setPrecoBasediaria(double precoBaseDiaria) {
+        this.precoBaseDiaria = precoBaseDiaria;
     } 
 }
