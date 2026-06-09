@@ -12,7 +12,7 @@ public abstract class Servico implements Exibivel{
         this. precoBase = precoBase;
     }
 
-    public abstract double calcPrecoTotal();
+    public abstract double calcPrecoTotal(); 
 
     public int getCodigo() {
         return this.codigo;

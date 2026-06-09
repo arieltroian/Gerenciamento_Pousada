@@ -5,10 +5,17 @@ public class Refeicao extends Servico{
         super(codigo, descricao, precoBase);
     }
 
-    public void exibirDados(){}
+    public void exibirDados(){
+        System.out.println("Descrição: " + getDescricao());
+    }
 
     @Override
     public double calcPrecoTotal() {
         return getPrecoBase();
     }
+
+    public int obterCodigo() {
+        return getCodigo();
+    }
+
 }

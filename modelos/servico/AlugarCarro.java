@@ -6,10 +6,16 @@ public class AlugarCarro extends Servico{
         super(codigo, descricao, precoBase);
     }
 
-    public void exibirDados(){}
+    public void exibirDados(){
+        System.out.println("Descrição: " + getDescricao());
+    }
 
     @Override
     public double calcPrecoTotal() {
         return getPrecoBase() * taxa;
+    }
+
+    public int obterCodigo() {
+        return getCodigo();
     }
 }
