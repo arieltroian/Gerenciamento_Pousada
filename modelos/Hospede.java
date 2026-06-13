@@ -4,7 +4,11 @@ public class Hospede {
     private String cpf;
     private int idade;
 
-    public Hospede () {}
+    public Hospede (String nome, String cpf, int idade) {
+        this.nome= nome;
+        this.cpf = cpf;
+        this.idade = idade;
+    }
 
     public String getNome() {
         return this.nome;
