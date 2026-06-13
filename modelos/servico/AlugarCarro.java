@@ -1,4 +1,7 @@
 package modelos.servico;
+
+import java.text.DecimalFormat;
+
 public class AlugarCarro extends Servico{
     private int qtdDias;
 
@@ -8,9 +11,10 @@ public class AlugarCarro extends Servico{
     }
 
     public void exibirDados(){
+        DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
-        "\nPreço Total: R$ " + calcPrecoTotal() +
+        "\nPreço Total: R$" + df.format(calcPrecoTotal()) +
         "\nQuantidade de dias: " + qtdDias);
     }
 

@@ -1,5 +1,7 @@
 package modelos.acomodacao;
 
+import java.text.DecimalFormat;
+
 public class Suite extends Acomodacao{
     private double taxaHidromassagem;
     private double adicionalServico;
@@ -23,12 +25,13 @@ public class Suite extends Acomodacao{
 
     @Override
     public void exibirDados() {
+        DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("SUÍTE\n\nCódigo: " + getCodigo() + 
         "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: R$" + getPrecoBaseDiaria() + 
-        "\nAdicional de Serviço: R$" + this.adicionalServico + 
-        "\nTaxa Fixa de Hidromassagem: R$" + this.taxaHidromassagem + 
-        "\nPreço total da diária: R$" + calcPrecoTotalDiaria());
+        "\nPreço da diária: R$" + df.format(getPrecoBaseDiaria()) + 
+        "\nAdicional de Serviço: R$" + df.format(this.adicionalServico) + 
+        "\nTaxa Fixa de Hidromassagem: R$" + df.format(this.taxaHidromassagem) + 
+        "\nPreço total da diária: R$" + df.format(calcPrecoTotalDiaria()));
     }
 
     public double getTaxaHidromassagem() {

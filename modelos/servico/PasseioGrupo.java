@@ -1,4 +1,7 @@
 package modelos.servico;
+
+import java.text.DecimalFormat;
+
 public class PasseioGrupo extends Servico{
     private int qtdMaxPessoas;
 
@@ -8,9 +11,10 @@ public class PasseioGrupo extends Servico{
     }
 
     public void exibirDados(){
+        DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
-        "\nPreço Total: R$ " + calcPrecoTotal() + 
+        "\nPreço Total: R$" + df.format(calcPrecoTotal()) + 
         "\nQuantidade máxima de pessoas: " + qtdMaxPessoas);
     }
 

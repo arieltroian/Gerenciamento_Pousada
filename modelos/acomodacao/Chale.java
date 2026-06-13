@@ -1,5 +1,7 @@
 package modelos.acomodacao;
 
+import java.text.DecimalFormat;
+
 public class Chale extends Acomodacao {
     private double taxaAquecimento;
     private double taxaLimpeza;
@@ -24,12 +26,13 @@ public class Chale extends Acomodacao {
 
     @Override
     public void exibirDados() {
+        DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("CHALÉ\n\nCódigo: " + getCodigo() + 
         "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: R$" + getPrecoBaseDiaria() + 
-        "\nTaxa de Aquecimento: R$" + this.taxaAquecimento + 
-        "\nTaxa de limpeza: R$" + this.taxaLimpeza +
-        "\nPreço total da diária: R$" + calcPrecoTotalDiaria());
+        "\nPreço da diária: R$" + df.format(getPrecoBaseDiaria()) + 
+        "\nTaxa de Aquecimento: R$" + df.format(this.taxaAquecimento) + 
+        "\nTaxa de limpeza: R$" + df.format(this.taxaLimpeza) +
+        "\nPreço total da diária: R$" + df.format(calcPrecoTotalDiaria()));
     }
 
     public double getTaxaAquecimento() {

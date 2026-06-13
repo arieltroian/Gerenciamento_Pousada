@@ -1,4 +1,7 @@
 package modelos.servico;
+
+import java.text.DecimalFormat;
+
 public class Refeicao extends Servico{
 
     public Refeicao(int codigo, String descricao, double precoBase){
@@ -6,9 +9,10 @@ public class Refeicao extends Servico{
     }
 
     public void exibirDados(){
+        DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
-        "\nPreço Total: R$ " + calcPrecoTotal());
+        "\nPreço Total: R$" + df.format(calcPrecoTotal()));
     }
 
     @Override
