@@ -6,7 +6,9 @@ public class Refeicao extends Servico{
     }
 
     public void exibirDados(){
-        System.out.println("Descrição: " + getDescricao());
+        System.out.println("Descrição: " + getDescricao() + 
+        "\nCódigo: " + getCodigo() + 
+        "\nPreço Total: R$ " + calcPrecoTotal());
     }
 
     @Override
@@ -17,5 +19,4 @@ public class Refeicao extends Servico{
     public int obterCodigo() {
         return getCodigo();
     }
-
 }

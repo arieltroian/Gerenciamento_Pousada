@@ -1,18 +1,22 @@
 package modelos.servico;
 public class AlugarCarro extends Servico{
-    private double taxa;
+    private int qtdDias;
 
-    public AlugarCarro(int codigo, String descricao, double precoBase){
+    public AlugarCarro(int codigo, String descricao, double precoBase, int qtdDias){
         super(codigo, descricao, precoBase);
+        this.qtdDias = qtdDias;
     }
 
     public void exibirDados(){
-        System.out.println("Descrição: " + getDescricao());
+        System.out.println("Descrição: " + getDescricao() + 
+        "\nCódigo: " + getCodigo() + 
+        "\nPreço Total: R$ " + calcPrecoTotal() +
+        "\nQuantidade de dias: " + qtdDias);
     }
 
     @Override
     public double calcPrecoTotal() {
-        return getPrecoBase() * taxa;
+        return getPrecoBase() * qtdDias;
     }
 
     public int obterCodigo() {
