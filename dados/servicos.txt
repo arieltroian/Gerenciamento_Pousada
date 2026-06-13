@@ -1,0 +1,6 @@
+REFEICAO;10;Cafe da Manha Completo;45.50
+REFEICAO;11;Jantar Romantico VIP;150.00
+PASSEIO;20;Trilha das Cachoeiras;85.00;15
+PASSEIO;21;Passeio de Cavalo;120.00;40
+ALUGARCARRO;30;Aluguel de Buggy;200.00;1
+ALUGARCARRO;31;Aluguel SUV 4x4;450.00;3
