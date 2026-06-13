@@ -63,7 +63,7 @@ public class Main {
                     for (Hospede h : pousada.getHospedes()) {
                         if (h.getCpf().equals(cpfBusca)) {
                             System.out.println("\n--- Dados do Hóspede ---");
-                            System.out.println("Nome: " + h.getNome() + " | Idade: " + h.getIdade() + " | CPF: " + h.getCpf());
+                            System.out.println("Nome: " + h.getNome() + " | CPF: " + h.getCpf() + " | Idade: " + h.getIdade());
                             hospedeEncontrado = true;
                             break;
                         }
@@ -74,7 +74,7 @@ public class Main {
                 case 3: // Exibir dados de todos os hóspedes
                     System.out.println("\n--- Lista de Todos os Hóspedes ---");
                     for (Hospede h : pousada.getHospedes()) {
-                        System.out.println("Nome: " + h.getNome() + " | CPF: " + h.getCpf());
+                        System.out.println("Nome: " + h.getNome() + " | CPF: " + h.getCpf() + " | Idade: " + h.getIdade());
                     }
                     break;
 
