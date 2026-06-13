@@ -59,9 +59,8 @@ public class GerenciadorArquivos implements Armazenavel{
                     acomodacoesLidas.add(new Suite(codigo, capacidade, preco, taxaHidromassagem, adicionalServico));
                 }
             }
-            System.out.println("Acomodações lidas.");
         } catch (IOException e) {
-            System.out.println("Erro ao ler acomodações: " + e.getMessage());
+            throw new RuntimeException("Erro ao ler acomodações: " + e.getMessage());
         }
         return acomodacoesLidas;
     }
@@ -101,9 +100,8 @@ public class GerenciadorArquivos implements Armazenavel{
                     servicosLidos.add(new AlugarCarro(codigo, descricao, preco, qtdDias));
                 }
             }
-            System.out.println("Serviços lidos.");
         } catch (IOException e) {
-            System.out.println("Erro ao ler serviços: " + e.getMessage());
+            throw new RuntimeException("Erro ao ler serviços: " + e.getMessage());
         }
         return servicosLidos;
     }
@@ -122,9 +120,8 @@ public class GerenciadorArquivos implements Armazenavel{
 
                 hospedesLidos.add(new Hospede(nome, cpf, idade));
             }
-            System.out.println("Hospedes lidos.");
         } catch (IOException e) {
-            System.out.println("Erro ao ler hospedes: " + e.getMessage());
+            throw new RuntimeException("Erro ao ler hóspedes: " + e.getMessage());
         }
         return hospedesLidos;
     }
@@ -165,9 +162,8 @@ public class GerenciadorArquivos implements Armazenavel{
                     System.out.println("Aviso: Ignorando reserva " + codigo + " pois Hóspede ou Acomodação não existem mais no sistema.");
                 }
             }
-            System.out.println("Reservas lidas.");
         } catch (IOException e) {
-            System.out.println("Erro ao ler reservas: " + e.getMessage());
+            throw new RuntimeException("Erro ao ler reservas: " + e.getMessage());
         }
         return reservasLidas;
     }
@@ -179,9 +175,8 @@ public class GerenciadorArquivos implements Armazenavel{
                 bw.write(h.getNome() + ";" + h.getCpf() + ";" + h.getIdade());
                 bw.newLine();
             }
-            System.out.println("Hospede cadastrado(a).");
         } catch (IOException e) {
-            System.out.println("Erro ao salvar hospedes: " + e.getMessage());
+            throw new RuntimeException("Erro ao salvar hóspedes: " + e.getMessage());
         }
     }
 
@@ -192,10 +187,8 @@ public class GerenciadorArquivos implements Armazenavel{
                 bw.write(r.getCodigo() + ";" + r.getQtdHospedes() + ";" + r.getQtdDias() + r.getHospede() + r.getAcomodacao());
                 bw.newLine();
             }
-            System.out.println("Reserva cadastrada.");
         } catch (IOException e) {
-            System.out.println("Erro ao salvar reservas: \" + e.getMessage()");
+            throw new RuntimeException("Erro ao salvar reservas: " + e.getMessage());
         }
-
     }
 }

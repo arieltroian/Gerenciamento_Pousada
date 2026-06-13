@@ -23,17 +23,26 @@ public class Pousada {
     }
 
     public void carregarDados(){
-        this.acomodacoes = gerenciadorArquivos.lerAcomodacoes("dados/acomodacoes.txt");
-        this.servicos = gerenciadorArquivos.lerServicos("dados/servicos.txt");
-        this.hospedes = gerenciadorArquivos.lerHospedes("dados/hospedes.txt");
-        this.reservas = gerenciadorArquivos.lerReservas("dados/reservas.txt", this.hospedes, this.acomodacoes);
-        System.out.println("Todos os dados foram carregados no sistema com sucesso.");
+        try {
+            this.acomodacoes = gerenciadorArquivos.lerAcomodacoes("dados/acomodacoes.txt");
+            this.servicos = gerenciadorArquivos.lerServicos("dados/servicos.txt");
+            this.hospedes = gerenciadorArquivos.lerHospedes("dados/hospedes.txt");
+            this.reservas = gerenciadorArquivos.lerReservas("dados/reservas.txt", this.hospedes, this.acomodacoes);
+            
+            System.out.println("\nTodos os dados foram carregados no sistema com sucesso.");       
+        } catch (RuntimeException e) {
+            System.out.println("\nNão foi possível carregar os dados: " + e.getMessage());
+        }
     } 
 
     public void salvarDados() {
-        gerenciadorArquivos.salvarHospedes(this.hospedes, "dados/hospedes.txt");
-        gerenciadorArquivos.salvarReservas(this.reservas, "dados/reservas.txt");
-        System.out.println("Todos os dados foram salvos no sistema com sucesso.");
+        try {
+            gerenciadorArquivos.salvarHospedes(this.hospedes, "dados/hospedes.txt");
+            gerenciadorArquivos.salvarReservas(this.reservas, "dados/reservas.txt");
+            System.out.println("\nTodos os dados foram salvos no sistema com sucesso.");
+        } catch(RuntimeException e) {
+            System.out.println("\nNão foi possível salvar os dados: " + e.getMessage());
+        }
     }
 
     public List<Hospede> getHospedes() {
