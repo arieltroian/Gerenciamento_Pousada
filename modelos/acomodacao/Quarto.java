@@ -12,11 +12,15 @@ public class Quarto extends Acomodacao{
     }
 
     @Override
-    public void exibirDados() {
-        System.out.println("QUARTO\n\nCódigo: " + getCodigo() + 
-        "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: R$ " + getPrecoBaseDiaria());
+    public double calcPrecoTotalDiaria(){
+        return getPrecoBaseDiaria();
     }
 
-
+    @Override
+    public void exibirDados() {
+        System.out.println("QUARTO\n\nCódigo: " + getCodigo() + 
+        "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
+        "\nPreço da diária: R$" + getPrecoBaseDiaria() +
+        "\nPreço total da diária: R$" + calcPrecoTotalDiaria());
+    }
 }

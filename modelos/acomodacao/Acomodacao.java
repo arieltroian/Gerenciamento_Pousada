@@ -14,6 +14,8 @@ public abstract class Acomodacao implements Exibivel{
 
     public abstract double calcPrecoTotal(int dias);
 
+    public abstract double calcPrecoTotalDiaria();
+
     public int getCodigo() {
         return this.codigo;
     }

@@ -9,6 +9,7 @@ public class Suite extends Acomodacao{
         this.taxaHidromassagem = taxaHidromassagem;
         this.adicionalServico = adicionalServico;
     }
+
     @Override
     public double calcPrecoTotal(int qtdDias) {
         double precoDiariasComVIP = (getPrecoBaseDiaria() + this.adicionalServico) * qtdDias;
@@ -16,12 +17,18 @@ public class Suite extends Acomodacao{
     }
 
     @Override
+    public double calcPrecoTotalDiaria() {
+        return getPrecoBaseDiaria() + this.adicionalServico + this.taxaHidromassagem;
+    }
+
+    @Override
     public void exibirDados() {
         System.out.println("SUÍTE\n\nCódigo: " + getCodigo() + 
-        "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: R$ " + getPrecoBaseDiaria() + 
-        "\nAdicional de Serviço: R$ " + this.adicionalServico + 
-        "\nTaxa Fixa de Hidromassagem: R$ " + this.taxaHidromassagem);
+        "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
+        "\nPreço da diária: R$" + getPrecoBaseDiaria() + 
+        "\nAdicional de Serviço: R$" + this.adicionalServico + 
+        "\nTaxa Fixa de Hidromassagem: R$" + this.taxaHidromassagem + 
+        "\nPreço total da diária: R$" + calcPrecoTotalDiaria());
     }
 
     public double getTaxaHidromassagem() {
@@ -39,6 +46,4 @@ public class Suite extends Acomodacao{
     public void setAdicionalServico(double adicionalServico) {
         this.adicionalServico = adicionalServico;
     }
-
-    
 }

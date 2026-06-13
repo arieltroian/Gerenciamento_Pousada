@@ -18,12 +18,18 @@ public class Chale extends Acomodacao {
     }
 
     @Override
+    public double calcPrecoTotalDiaria() {
+        return getPrecoBaseDiaria() + this.taxaAquecimento + this.taxaLimpeza;
+    }
+
+    @Override
     public void exibirDados() {
         System.out.println("CHALÉ\n\nCódigo: " + getCodigo() + 
-        "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: R$ " + getPrecoBaseDiaria() + 
-        "\nTaxa de Aquecimento: R$ " + this.taxaAquecimento + 
-        "\nTaxa de limpeza: R$ " + this.taxaLimpeza);
+        "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
+        "\nPreço da diária: R$" + getPrecoBaseDiaria() + 
+        "\nTaxa de Aquecimento: R$" + this.taxaAquecimento + 
+        "\nTaxa de limpeza: R$" + this.taxaLimpeza +
+        "\nPreço total da diária: R$" + calcPrecoTotalDiaria());
     }
 
     public double getTaxaAquecimento() {
