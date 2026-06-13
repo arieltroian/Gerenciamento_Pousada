@@ -246,7 +246,7 @@ public class Main {
                             
                             System.out.println("-> Serviços Contratados:");
                             for (Servico s : r.getServicos()) {
-                                System.out.println("   - Cód " + s.getCodigo() + ": R$ " + s.calcPrecoTotal()); 
+                                System.out.println("   - Cód " + s.getCodigo() + ": R$ " + s.calcPrecoTotal(r.getQtdDias())); 
                             }
                             
                             System.out.println("----------------------------------------");

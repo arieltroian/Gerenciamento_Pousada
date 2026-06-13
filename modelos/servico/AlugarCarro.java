@@ -3,24 +3,20 @@ package modelos.servico;
 import java.text.DecimalFormat;
 
 public class AlugarCarro extends Servico{
-    private int qtdDias;
-
-    public AlugarCarro(int codigo, String descricao, double precoBase, int qtdDias){
+    public AlugarCarro(int codigo, String descricao, double precoBase){
         super(codigo, descricao, precoBase);
-        this.qtdDias = qtdDias;
     }
 
     public void exibirDados(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
-        "\nPreço Total: R$" + df.format(calcPrecoTotal()) +
-        "\nQuantidade de dias: " + qtdDias);
+        "\nPreço da diária: R$" + df.format(getPrecoBase()));
     }
 
     @Override
-    public double calcPrecoTotal() {
-        return getPrecoBase() * qtdDias;
+    public double calcPrecoTotal(int qtdDiasReserva) {
+        return getPrecoBase() * qtdDiasReserva;
     }
 
     public int obterCodigo() {

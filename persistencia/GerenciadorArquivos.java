@@ -88,16 +88,15 @@ public class GerenciadorArquivos implements Armazenavel{
                     double preco = Double.parseDouble(dados[3]);
                     int qtdMaxPessoas = Integer.parseInt(dados[4]);
 
-                    servicosLidos.add(new PasseioGrupo(codigo, descricao, preco, qtdMaxPessoas));
+                    servicosLidos.add(new PasseioGrupo(codigo, descricao, qtdMaxPessoas, preco));
                 }
 
                 else if(dados[0].equalsIgnoreCase("ALUGARCARRO")) {
                     int codigo = Integer.parseInt(dados[1]);
                     String descricao = dados[2];
                     double preco = Double.parseDouble(dados[3]);
-                    int qtdDias = Integer.parseInt(dados[4]);
 
-                    servicosLidos.add(new AlugarCarro(codigo, descricao, preco, qtdDias));
+                    servicosLidos.add(new AlugarCarro(codigo, descricao, preco));
                 }
             }
         } catch (IOException e) {

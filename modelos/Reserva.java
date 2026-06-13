@@ -46,7 +46,7 @@ public class Reserva {
         double totalAcomodacao = this.acomodacao.calcPrecoTotal(this.qtdDias);
 
         for(Servico servico : this.servicos) {
-            totalServicos += servico.calcPrecoTotal();
+            totalServicos += servico.calcPrecoTotal(this.qtdDias);
         }
 
         return totalAcomodacao + totalServicos;

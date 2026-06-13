@@ -12,11 +12,11 @@ public class Refeicao extends Servico{
         DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
-        "\nPreço Total: R$" + df.format(calcPrecoTotal()));
+        "\nPreço Total: R$" + df.format(getPrecoBase()));
     }
 
     @Override
-    public double calcPrecoTotal() {
+    public double calcPrecoTotal(int qtdDiasReserva) {
         return getPrecoBase();
     }
 
