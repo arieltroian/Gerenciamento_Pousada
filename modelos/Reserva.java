@@ -23,6 +23,15 @@ public class Reserva {
         this.servicos = new ArrayList<>();
     }
 
+    public Reserva(int codigo, Hospede hospedeEncontrado, Acomodacao acomodacaoEncontrada, int qtdHospedes, int qtdDias) {
+        this.codigo = codigo;
+        this.hospede = hospedeEncontrado;
+        this.acomodacao = acomodacaoEncontrada;
+        this.qtdHospedes = qtdHospedes;
+        this.qtdDias = qtdDias;
+        this.servicos = new ArrayList<>();
+    }
+
     public void contratarServico(Servico servico){
         this.servicos.add(servico);
     }
@@ -67,8 +76,8 @@ public class Reserva {
         this.qtdDias = qtdDias;
     }
 
-    public Hospede getHospede () {
-        return hospede;
+    public Hospede getHospede() {
+        return this.hospede;
     }
 
     public Hospede setHospede(Hospede hospede) {
