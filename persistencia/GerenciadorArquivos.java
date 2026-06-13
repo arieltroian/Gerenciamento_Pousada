@@ -184,7 +184,13 @@ public class GerenciadorArquivos implements Armazenavel{
     public void salvarReservas(List<Reserva> reservas, String arquivo) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo))) {
             for(Reserva r : reservas) {
-                bw.write(r.getCodigo() + ";" + r.getQtdHospedes() + ";" + r.getQtdDias() + r.getHospede() + r.getAcomodacao());
+                String linha = r.getCodigo() + ";" + 
+                r.getHospede().getCpf() + ";" + 
+                r.getAcomodacao().getCodigo() + ";" + 
+                r.getQtdHospedes() + ";" + 
+                r.getQtdDias();
+                
+                bw.write(linha);
                 bw.newLine();
             }
         } catch (IOException e) {
