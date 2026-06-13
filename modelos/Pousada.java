@@ -5,26 +5,35 @@ import java.util.List;
 import interfaces.Armazenavel;
 import modelos.acomodacao.Acomodacao;
 import modelos.servico.Servico;
+import persistencia.GerenciadorArquivos;
 
-public class Pousada implements Armazenavel{
+public class Pousada {
     private List<Hospede> hospedes;
     private List<Acomodacao> acomodacoes;
     private List<Servico> servicos;
     private List<Reserva> reservas;
+    private Armazenavel gerenciadorArquivos;
 
     public Pousada() {
         this.hospedes = new ArrayList<>();
         this.acomodacoes = new ArrayList<>();
         this.servicos = new ArrayList<>();
         this.reservas = new ArrayList<>();
+        this.gerenciadorArquivos = new GerenciadorArquivos();
     }
 
-    public void lerDados(){
-
-    }
+    public void carregarDados(){
+        this.acomodacoes = gerenciadorArquivos.lerAcomodacoes("dados/acomodacoes.txt");
+        this.servicos = gerenciadorArquivos.lerServicos("dados/servicos.txt");
+        this.hospedes = gerenciadorArquivos.lerHospedes("dados/hospedes.txt");
+        this.reservas = gerenciadorArquivos.lerReservas("dados/reservas.txt", this.hospedes, this.acomodacoes);
+        System.out.println("Todos os dados foram carregados no sistema com sucesso.");
+    } 
 
     public void salvarDados() {
-        
+        gerenciadorArquivos.salvarHospedes(this.hospedes, "dados/hospedes.txt");
+        gerenciadorArquivos.salvarReservas(this.reservas, "dados/reservas.txt");
+        System.out.println("Todos os dados foram salvos no sistema com sucesso.");
     }
 
     public List<Hospede> getHospedes() {
