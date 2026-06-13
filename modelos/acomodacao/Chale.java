@@ -19,11 +19,11 @@ public class Chale extends Acomodacao {
 
     @Override
     public void exibirDados() {
-        System.out.println("Código: " + getCodigo() + 
+        System.out.println("CHALÉ\n\nCódigo: " + getCodigo() + 
         "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: " + getPrecoBaseDiaria() + 
-        "\nTaxa de Aquecimento: " + this.taxaAquecimento + 
-        "Taxa de limpeza: " + this.taxaLimpeza);
+        "\nPreço da diária: R$ " + getPrecoBaseDiaria() + 
+        "\nTaxa de Aquecimento: R$ " + this.taxaAquecimento + 
+        "\nTaxa de limpeza: R$ " + this.taxaLimpeza);
     }
 
     public double getTaxaAquecimento() {

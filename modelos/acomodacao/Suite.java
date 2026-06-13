@@ -17,11 +17,11 @@ public class Suite extends Acomodacao{
 
     @Override
     public void exibirDados() {
-        System.out.println("Código: " + getCodigo() + 
+        System.out.println("SUÍTE\n\nCódigo: " + getCodigo() + 
         "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: " + getPrecoBaseDiaria() + 
-        "\nAdicional de Serviço: " + this.adicionalServico + 
-        "\nTaxa Fixa de Hidromassagem: " + this.taxaHidromassagem);
+        "\nPreço da diária: R$ " + getPrecoBaseDiaria() + 
+        "\nAdicional de Serviço: R$ " + this.adicionalServico + 
+        "\nTaxa Fixa de Hidromassagem: R$ " + this.taxaHidromassagem);
     }
 
     public double getTaxaHidromassagem() {

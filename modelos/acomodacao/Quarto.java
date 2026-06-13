@@ -13,9 +13,9 @@ public class Quarto extends Acomodacao{
 
     @Override
     public void exibirDados() {
-        System.out.println("Código: " + getCodigo() + 
+        System.out.println("QUARTO\n\nCódigo: " + getCodigo() + 
         "\nCapacidade Máxima de pessoas: " + getCapacidadeMax() + 
-        "\nPreço da diária: " + getPrecoBaseDiaria());
+        "\nPreço da diária: R$ " + getPrecoBaseDiaria());
     }
 
 
