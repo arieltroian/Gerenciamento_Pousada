@@ -133,58 +133,64 @@ public class Main {
                     break;
 
                 case 8: // Cadastrar uma reserva
-                    System.out.print("Código da nova reserva: ");
-                    int codigoReserva = teclado.nextInt();
-                    teclado.nextLine();
-                    
-                    System.out.print("CPF do hóspede responsável: ");
-                    String cpfReserva = teclado.nextLine();
-                    Hospede responsavel = null;
-                    for (Hospede h : pousada.getHospedes()) {
-                        if (h.getCpf().equals(cpfReserva)) {
-                            responsavel = h;
+                    try {
+                        System.out.print("Código da nova reserva: ");
+                        int codigoReserva = teclado.nextInt();
+                        teclado.nextLine();
+                        
+                        System.out.print("CPF do hóspede responsável: ");
+                        String cpfReserva = teclado.nextLine();
+                        Hospede responsavel = null;
+                        for (Hospede h : pousada.getHospedes()) {
+                            if (h.getCpf().equals(cpfReserva)) {
+                                responsavel = h;
+                                break;
+                            }
+                        }
+
+                        System.out.print("Código da acomodação: ");
+                        int codAcomodacao = teclado.nextInt();
+                        Acomodacao acomodacaoEscolhida = null;
+                        for (Acomodacao a : pousada.getAcomodacoes()) {
+                            if (a.getCodigo() == codAcomodacao) {
+                                acomodacaoEscolhida = a;
+                                break;
+                            }
+                        }
+
+                        if (responsavel == null || acomodacaoEscolhida == null) {
+                            System.out.println("Hóspede ou acomodação não encontrados. Operação cancelada.");
                             break;
                         }
+
+                        int qtdHospedes;
+                        do {
+                            System.out.print("Quantidade de hóspedes: ");
+                            qtdHospedes = teclado.nextInt();
+                            if (qtdHospedes > acomodacaoEscolhida.getCapacidadeMax()) {
+                                System.out.println("Erro: A quantidade excede a capacidade máxima (" 
+                                    + acomodacaoEscolhida.getCapacidadeMax() + ") da acomodação. Digite novamente.");
+                            } else if (qtdHospedes <= 0) {
+                                System.out.println("A reserva precisa ter pelo menos 1 hóspede.");
+                            }
+                        } while (qtdHospedes > acomodacaoEscolhida.getCapacidadeMax() || qtdHospedes <= 0);
+
+                        int qtdDias;
+                        do {
+                            System.out.print("Quantidade de dias: ");
+                            qtdDias = teclado.nextInt();
+                            if (qtdDias <= 0) {
+                                System.out.println("A quantidade de dias deve ser maior que zero.");
+                            }
+                        } while (qtdDias <= 0);
+
+                        Reserva novaReserva = new Reserva(codigoReserva, qtdHospedes, qtdDias, responsavel, acomodacaoEscolhida);
+                        pousada.getReservas().add(novaReserva);
+
+                        System.out.println("\nA reserva " + codigoReserva + " foi cadastrada no sistema.");
+                    } catch (Exception e) {
+                        System.out.println("\nFalha ao cadastrar a reserva: " + e.getMessage());
                     }
-
-                    System.out.print("Código da acomodação: ");
-                    int codAcomodacao = teclado.nextInt();
-                    Acomodacao acomodacaoEscolhida = null;
-                    for (Acomodacao a : pousada.getAcomodacoes()) {
-                        if (a.getCodigo() == codAcomodacao) {
-                            acomodacaoEscolhida = a;
-                            break;
-                        }
-                    }
-
-                    if (responsavel == null || acomodacaoEscolhida == null) {
-                        System.out.println("Hóspede ou acomodação não encontrados. Operação cancelada.");
-                        break;
-                    }
-
-                    int qtdHospedes;
-                    do {
-                        System.out.print("Quantidade de hóspedes: ");
-                        qtdHospedes = teclado.nextInt();
-                        if (qtdHospedes > acomodacaoEscolhida.getCapacidadeMax()) {
-                            System.out.println("Erro: A quantidade excede a capacidade máxima (" 
-                                + acomodacaoEscolhida.getCapacidadeMax() + ") da acomodação. Digite novamente.");
-                        } else if (qtdHospedes <= 0) {
-                            System.out.println("Erro: A reserva precisa ter pelo menos 1 hóspede.");
-                        }
-                    } while (qtdHospedes > acomodacaoEscolhida.getCapacidadeMax() || qtdHospedes <= 0);
-
-                    int qtdDias;
-                    do {
-                        System.out.print("Quantidade de dias: ");
-                        qtdDias = teclado.nextInt();
-                        if (qtdDias <= 0) {
-                            System.out.println("Erro: A quantidade de dias deve ser maior que zero.");
-                        }
-                    } while (qtdDias <= 0);
-
-                    Reserva novaReserva = new Reserva(codigoReserva, qtdHospedes, qtdDias, responsavel, acomodacaoEscolhida);
-                    pousada.getReservas().add(novaReserva);
                     break;
 
                 case 9: // Adicionar serviço a uma reserva
