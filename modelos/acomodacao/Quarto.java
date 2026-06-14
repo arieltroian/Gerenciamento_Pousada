@@ -19,9 +19,14 @@ public class Quarto extends Acomodacao{
     }
 
     @Override
+    public String getTipo() {
+        return "Quarto";
+    }
+
+    @Override
     public void exibirDados() {
         DecimalFormat df = new DecimalFormat("#,##0.00");
-        System.out.println("QUARTO\n\nCódigo: " + getCodigo() + 
+        System.out.println(getTipo() + "\nCódigo: " + getCodigo() + 
         "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
         "\nPreço da diária: R$" + df.format(getPrecoBaseDiaria()) +
         "\nPreço total da diária: R$" + df.format(calcPrecoTotalDiaria()));

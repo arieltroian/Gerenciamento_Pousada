@@ -25,9 +25,14 @@ public class Chale extends Acomodacao {
     }
 
     @Override
+    public String getTipo() {
+        return "Chalé";
+    }
+
+    @Override
     public void exibirDados() {
         DecimalFormat df = new DecimalFormat("#,##0.00");
-        System.out.println("CHALÉ\n\nCódigo: " + getCodigo() + 
+        System.out.println(getTipo() +"\nCódigo: " + getCodigo() + 
         "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
         "\nPreço da diária: R$" + df.format(getPrecoBaseDiaria()) + 
         "\nTaxa de Aquecimento: R$" + df.format(this.taxaAquecimento) + 

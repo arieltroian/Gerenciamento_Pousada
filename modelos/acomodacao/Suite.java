@@ -24,9 +24,14 @@ public class Suite extends Acomodacao{
     }
 
     @Override
+    public String getTipo() {
+        return "Suíte";
+    }
+
+    @Override
     public void exibirDados() {
         DecimalFormat df = new DecimalFormat("#,##0.00");
-        System.out.println("SUÍTE\n\nCódigo: " + getCodigo() + 
+        System.out.println(getTipo() + "\nCódigo: " + getCodigo() + 
         "\nCapacidade máxima de pessoas: " + getCapacidadeMax() + 
         "\nPreço da diária: R$" + df.format(getPrecoBaseDiaria()) + 
         "\nAdicional de Serviço: R$" + df.format(this.adicionalServico) + 
