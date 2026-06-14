@@ -14,7 +14,8 @@ public class Refeicao extends Servico{
 
     public void exibirDados(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
-        System.out.println("Descrição: " + getDescricao() + 
+        System.out.println("Serviço: " + getTipo() + 
+        "\nDescrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
         "\nPreço Total: R$" + df.format(getPrecoBase()));
     }

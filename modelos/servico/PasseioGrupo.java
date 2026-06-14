@@ -18,7 +18,8 @@ public class PasseioGrupo extends Servico{
         DecimalFormat df = new DecimalFormat("#,##0.00");
         double precoTotalPasseio = getPrecoBase() * this.qtdMaxPessoas;
 
-        System.out.println("Descrição: " + getDescricao() + 
+        System.out.println("Serviço: " + getTipo() + 
+        "\nDescrição: " + getDescricao() + 
         "\nCódigo: " + getCodigo() + 
         "\nQuantidade máxima de pessoas: " + qtdMaxPessoas +
         "\nPreço Total: R$" + df.format(precoTotalPasseio)); 
