@@ -12,7 +12,7 @@ public class Main {
 
         int opcao = 0;
         do {
-            System.out.println("\n===== GERENCIAMENTO DA POUSADA =====");
+            System.out.println("\n======== GERENCIAMENTO DA POUSADA ========");
             System.out.println("1. Cadastrar um hóspede");
             System.out.println("2. Exibir dados de um hóspede");
             System.out.println("3. Exibir dados de todos os hóspedes");
@@ -45,7 +45,7 @@ public class Main {
                         System.out.print("Idade do hóspede: ");
                         idade = teclado.nextInt();
                         if (idade < 0) {
-                            System.out.println("Erro: A idade não pode ser negativa. Tente novamente.");
+                            System.out.println("A idade não pode ser negativa. Tente novamente.");
                         }
                     } while (idade < 0);
                     teclado.nextLine(); 
@@ -62,7 +62,7 @@ public class Main {
                     
                     for (Hospede h : pousada.getHospedes()) {
                         if (h.getCpf().equals(cpfBusca)) {
-                            System.out.println("\n--- Dados do Hóspede ---");
+                            System.out.println("\n---------- Dados do Hóspede ----------");
                             System.out.println("Nome: " + h.getNome() + " | CPF: " + h.getCpf() + " | Idade: " + h.getIdade());
                             hospedeEncontrado = true;
                             break;
@@ -72,9 +72,12 @@ public class Main {
                     break;
 
                 case 3: // Exibir dados de todos os hóspedes
-                    System.out.println("\n--- Lista de Todos os Hóspedes ---");
+                    System.out.println("\n---------- Lista de Todos os Hóspedes ----------");
                     for (Hospede h : pousada.getHospedes()) {
-                        System.out.println("Nome: " + h.getNome() + " | CPF: " + h.getCpf() + " | Idade: " + h.getIdade());
+                        System.out.println("Nome: " + h.getNome() + 
+                        " | CPF: " + h.getCpf() + 
+                        " | Idade: " + h.getIdade());
+                        System.out.println("---------------------------------------------");
                     }
                     break;
 
@@ -94,10 +97,10 @@ public class Main {
                     break;
 
                 case 5: // Exibir dados de todas as acomodações
-                    System.out.println("\n--- Lista de Todas as Acomodações ---");
+                    System.out.println("\n---------- Lista de Todas as Acomodações ----------");
                     for (Acomodacao a : pousada.getAcomodacoes()) {
                         a.exibirDados();
-                        System.out.println("-------------------------");
+                        System.out.println("---------------------------------------------");
                     }
                     break;
 
@@ -117,15 +120,20 @@ public class Main {
                     break;
 
                 case 7: // Exibir dados de todos os serviços
-                    System.out.println("\n--- Lista de Todos os Serviços ---");
-                    for (Servico s : pousada.getServicos()) {
-                        s.exibirDados();
-                        System.out.println("-------------------------");
+                    if(pousada.getServicos() == null || pousada.getServicos().isEmpty()) {
+                        System.out.println("Nenhum serviço cadastrado no sistema.");
+                    }
+                    else {
+                        System.out.println("\n---------- Lista de Todos os Serviços ----------");
+                        for (Servico s : pousada.getServicos()) {
+                            s.exibirDados();
+                            System.out.println("---------------------------------------------");
+                        }
                     }
                     break;
 
                 case 8: // Cadastrar uma reserva
-                    System.out.print("Código da Nova Reserva: ");
+                    System.out.print("Código da nova reserva: ");
                     int codigoReserva = teclado.nextInt();
                     teclado.nextLine();
                     
@@ -139,7 +147,7 @@ public class Main {
                         }
                     }
 
-                    System.out.print("Código da Acomodação: ");
+                    System.out.print("Código da acomodação: ");
                     int codAcomodacao = teclado.nextInt();
                     Acomodacao acomodacaoEscolhida = null;
                     for (Acomodacao a : pousada.getAcomodacoes()) {
@@ -150,13 +158,13 @@ public class Main {
                     }
 
                     if (responsavel == null || acomodacaoEscolhida == null) {
-                        System.out.println("Erro: hóspede ou acomodação não encontrados. Operação cancelada.");
+                        System.out.println("Hóspede ou acomodação não encontrados. Operação cancelada.");
                         break;
                     }
 
                     int qtdHospedes;
                     do {
-                        System.out.print("Quantidade de Hóspedes: ");
+                        System.out.print("Quantidade de hóspedes: ");
                         qtdHospedes = teclado.nextInt();
                         if (qtdHospedes > acomodacaoEscolhida.getCapacidadeMax()) {
                             System.out.println("Erro: A quantidade excede a capacidade máxima (" 
@@ -168,7 +176,7 @@ public class Main {
 
                     int qtdDias;
                     do {
-                        System.out.print("Quantidade de Dias: ");
+                        System.out.print("Quantidade de dias: ");
                         qtdDias = teclado.nextInt();
                         if (qtdDias <= 0) {
                             System.out.println("Erro: A quantidade de dias deve ser maior que zero.");
@@ -204,7 +212,7 @@ public class Main {
                         reservaParaServico.contratarServico(servicoParaAdd);
                         System.out.println("Serviço adicionado à reserva com sucesso!");
                     } else {
-                        System.out.println("Erro: Reserva ou Serviço não encontrados.");
+                        System.out.println("Reserva ou Serviço não encontrados.");
                     }
                     break;
 
@@ -214,7 +222,7 @@ public class Main {
                     boolean reservaEncontrada = false;
                     for (Reserva r : pousada.getReservas()) {
                         if (r.getCodigo() == codExibir) {
-                            System.out.println("\n--- Dados da Reserva: " + r.getCodigo() + " ---");
+                            System.out.println("\n---------- Dados da Reserva: " + r.getCodigo() + " ----------");
                             System.out.println("Acomodação: " + r.getAcomodacao().getTipo() +  " - Código: " + r.getAcomodacao().getCodigo() +
                             " | Diárias: " + r.getQtdDias() + 
                             "\nHóspedes: "+ r.getQtdHospedes() + 
@@ -223,17 +231,20 @@ public class Main {
                             break;
                         }
                     }
-                    if (!reservaEncontrada) System.out.println("Reserva não encontrada.");
+                    if (!reservaEncontrada) {
+                        System.out.println("Reserva não encontrada.");
+                    } 
                     break;
 
                 case 11: // Exibir dados de todas as reservas
-                    System.out.println("\n--- Lista de Todas as Reservas ---");
+                    System.out.println("\n---------- Lista de Todas as Reservas ----------");
                     for (Reserva r : pousada.getReservas()) {
-                        System.out.println("\n--- Dados da Reserva: " + r.getCodigo() + " ---");
+                        System.out.println("---------- Dados da Reserva: " + r.getCodigo() + " ----------");
                         System.out.println("Acomodação: " + r.getAcomodacao().getTipo() +  " - Código: " + r.getAcomodacao().getCodigo() +
                         " | Diárias: " + r.getQtdDias() + 
                         "\nHóspedes: "+ r.getQtdHospedes() + 
                         " | Responsável: " + r.getHospede().getNome());
+                        System.out.println("----------------------------------------------");
                     }
                     break;
 
@@ -244,7 +255,7 @@ public class Main {
                     
                     for (Reserva r : pousada.getReservas()) {
                         if (r.getCodigo() == codExtrato) {
-                            System.out.println("\n======= EXTRATO DA RESERVA =======\n");
+                            System.out.println("\n=========== EXTRATO DA RESERVA ===========\n");
                             
                             double valorAcomodacao = r.getAcomodacao().calcPrecoTotal(r.getQtdDias());
                             System.out.println("-> Tipo de acomodação: " + r.getAcomodacao().getTipo());
@@ -258,9 +269,9 @@ public class Main {
                             }
                             
 
-                            System.out.println("----------------------------------------");
+                            System.out.println("---------------------------------------------");
                             System.out.println("TOTAL A PAGAR: R$ " + r.calcularPrecoTotal());
-                            System.out.println("========================================");
+                            System.out.println("=============================================");
                             
                             achouParaExtrato = true;
                             break;
