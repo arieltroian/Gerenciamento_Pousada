@@ -7,6 +7,10 @@ public class AlugarCarro extends Servico{
         super(codigo, descricao, precoBase);
     }
 
+    public String getTipo() {
+        return "Aluguel de carro";
+    }
+
     public void exibirDados(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 

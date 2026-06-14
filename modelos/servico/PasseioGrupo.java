@@ -10,6 +10,10 @@ public class PasseioGrupo extends Servico{
         this. qtdMaxPessoas = qtdMaxPessoas;
     }
 
+    public String getTipo() {
+        return "Passeio em grupo";
+    }
+
     public void exibirDados(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         double precoTotalPasseio = getPrecoBase() * this.qtdMaxPessoas;

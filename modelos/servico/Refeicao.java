@@ -8,6 +8,10 @@ public class Refeicao extends Servico{
         super(codigo, descricao, precoBase);
     }
 
+    public String getTipo() {
+        return "Refeição";
+    }
+
     public void exibirDados(){
         DecimalFormat df = new DecimalFormat("#,##0.00");
         System.out.println("Descrição: " + getDescricao() + 

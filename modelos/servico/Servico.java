@@ -14,6 +14,8 @@ public abstract class Servico implements Exibivel{
 
     public abstract double calcPrecoTotal(int qtdDiasReserva); 
 
+    public abstract String getTipo(); 
+
     public int getCodigo() {
         return this.codigo;
     }
