@@ -233,20 +233,23 @@ public class Main {
                     break;
 
                 case 12: // Exibir extrato de uma reserva
-                    System.out.print("Digite o código da reserva para o extrato: ");
+                    System.out.print("Digite o código da reserva que deseja conferir o extrato: ");
                     int codExtrato = teclado.nextInt();
                     boolean achouParaExtrato = false;
                     
                     for (Reserva r : pousada.getReservas()) {
                         if (r.getCodigo() == codExtrato) {
-                            System.out.println("\n======= EXTRATO DA RESERVA " + r.getCodigo() + " =======");
+                            System.out.println("\n======= EXTRATO DA RESERVA =======\n");
                             
                             double valorAcomodacao = r.getAcomodacao().calcPrecoTotal(r.getQtdDias());
+                            System.out.println("-> Tipo de acomodação: " + r.getAcomodacao().getTipo());
                             System.out.println("-> Diárias da Acomodação (" + r.getQtdDias() + " dias): R$ " + valorAcomodacao);
                             
-                            System.out.println("-> Serviços Contratados:");
-                            for (Servico s : r.getServicos()) {
-                                System.out.println("   - Cód " + s.getCodigo() + ": R$ " + s.calcPrecoTotal(r.getQtdDias())); 
+                            if(!r.getServicos().isEmpty()){
+                                System.out.println("-> Serviços Contratados:");
+                                for (Servico s : r.getServicos()) {
+                                    System.out.println("Tipo de serviço: " + s.getTipo() + "   - Cód " + s.getCodigo() + ": R$ " + s.calcPrecoTotal(r.getQtdDias())); 
+                                }
                             }
                             
                             System.out.println("----------------------------------------");
