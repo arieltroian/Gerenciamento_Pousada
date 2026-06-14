@@ -216,7 +216,7 @@ public class Main {
 
                     if (reservaParaServico != null && servicoParaAdd != null) {
                         reservaParaServico.contratarServico(servicoParaAdd);
-                        System.out.println("Serviço adicionado à reserva com sucesso!");
+                        System.out.println("Serviço: " + servicoParaAdd.getTipo() + " adicionado à reserva com sucesso!");
                     } else {
                         System.out.println("Reserva ou Serviço não encontrados.");
                     }
