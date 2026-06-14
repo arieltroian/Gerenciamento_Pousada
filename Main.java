@@ -214,10 +214,11 @@ public class Main {
                     boolean reservaEncontrada = false;
                     for (Reserva r : pousada.getReservas()) {
                         if (r.getCodigo() == codExibir) {
-                            System.out.println("\n--- Dados da Reserva " + r.getCodigo() + " ---");
-                            System.out.println("Responsável: " + r.getHospede().getNome());
-                            System.out.println("Acomodação Cód: " + r.getAcomodacao().getCodigo());
-                            System.out.println("Dias: " + r.getQtdDias() + " | Hóspedes: " + r.getQtdHospedes());
+                            System.out.println("\n--- Dados da Reserva: " + r.getCodigo() + " ---");
+                            System.out.println("Acomodação: " + r.getAcomodacao().getTipo() +  " - Código: " + r.getAcomodacao().getCodigo() +
+                            " | Diárias: " + r.getQtdDias() + 
+                            "\nHóspedes: "+ r.getQtdHospedes() + 
+                            " | Responsável: " + r.getHospede().getNome());
                             reservaEncontrada = true;
                             break;
                         }
@@ -228,7 +229,11 @@ public class Main {
                 case 11: // Exibir dados de todas as reservas
                     System.out.println("\n--- Lista de Todas as Reservas ---");
                     for (Reserva r : pousada.getReservas()) {
-                        System.out.println("Código: " + r.getCodigo() + " | Responsável: " + r.getHospede().getNome());
+                        System.out.println("\n--- Dados da Reserva: " + r.getCodigo() + " ---");
+                        System.out.println("Acomodação: " + r.getAcomodacao().getTipo() +  " - Código: " + r.getAcomodacao().getCodigo() +
+                        " | Diárias: " + r.getQtdDias() + 
+                        "\nHóspedes: "+ r.getQtdHospedes() + 
+                        " | Responsável: " + r.getHospede().getNome());
                     }
                     break;
 
@@ -252,6 +257,7 @@ public class Main {
                                 }
                             }
                             
+
                             System.out.println("----------------------------------------");
                             System.out.println("TOTAL A PAGAR: R$ " + r.calcularPrecoTotal());
                             System.out.println("========================================");
