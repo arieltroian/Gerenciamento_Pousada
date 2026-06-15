@@ -1,5 +1,5 @@
-REFEICAO;10;Cafe da Manha Completo;45.50
-PASSEIO;20;Trilha das Cachoeiras;85.00;15
-PASSEIO;21;Passeio de Cavalo;120.00;40
-ALUGARCARRO;30;Aluguel de Buggy;200.00
-ALUGARCARRO;31;Aluguel SUV 4x4;450.00
+REFEICAO;10;Cafe da Manha Completo: Oferece pães e bolos, frutas, laticínios, itens quentes e bebidas.;45.50
+PASSEIO;20;Trilha das Cachoeiras: Roteiro curto (cerca de 2,5 km) com duração de 2h20. Ideal para famílias, inclui mirantes da Serra da Mantiqueira e é pet-friendly.;30.00;8
+PASSEIO;21;Passeio de Cavalo: Promove a conexão com a natureza, combinando relaxamento, contato com os animais e contemplação de paisagens.;120.00;40
+ALUGARCARRO;30;Hyundai HB20: Compacto e ótimo para a cidade.;120.00
+ALUGARCARRO;31;Volkswagen Virtus: Porta-malas longo, ideal para famílias e viagens.;200.00
